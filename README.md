@@ -97,3 +97,46 @@ public class Solution {
 	}
 }
 ```
+
+### 5. GCD or HCF
+
+
+
+```java
+import java.util.*;
+public class Solution {
+    public static int calcGCD(int n, int m){
+        int x=0;
+        for(int i=1;i<=Math.min(n, m);i++){
+            if(n%i==0&&m%i==0){
+                x=i;
+            }
+        }
+        return x;
+    }
+}
+```
+
+to reduce time complexity
+
+```java
+import java.util.*;
+public class Solution {
+	
+	public static int gcd(int a,int b)
+	{
+        int x=1;
+		int c = Math.min(a,b);
+
+		if(a%c == 0 && b%c == 0){
+			return c;
+		}
+        for(int i=1;i<=Math.min(a, b);i++){
+            if(a%i==0&&b%i==0){
+                x=i;
+            }
+        }
+        return x;
+    }
+}
+```
