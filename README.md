@@ -74,3 +74,26 @@ public class Solution {
     }
 }
 ```
+
+### 4. Prime Number
+
+A prime number is a positive integer that is divisible by exactly 2 integers, 1 and the number itself.
+You are given a number 'n'.
+Find out whether 'n' is prime or not.
+
+```java
+public class Solution {
+    public static String isPrime(int num) {
+	int c = 0;
+    for(int i =1 ; i*i<= num; i++){
+        if(num%i==0)
+        {
+            c++;
+            if((num/i) != i) c++;
+        }
+    }
+    if(c==2) return "YES";
+    else return "NO";
+	}
+}
+```
