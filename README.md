@@ -165,3 +165,27 @@ public class Solution {
     }
 }
 ```
+
+### 7. Print name N times
+
+You are given an integer ‘n’.
+Print “Coding Ninjas ” ‘n’ times, without using a loop.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+public class Solution {
+    static void fun(List<String> li,int i,int n){
+        if(i>n){
+            return;
+        }
+        li.add("Coding Ninjas ");
+        fun(li,i+1,n);
+    }
+    public static List<String> printNtimes(int n){
+        List<String> li = new ArrayList<String>();
+        fun(li,1,n);
+        return li;
+    }
+}
+```
