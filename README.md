@@ -189,3 +189,26 @@ public class Solution {
     }
 }
 ```
+
+### 8. N to 1 without loop
+
+You are given an integer ‘n’.
+Your task is to return an array containing integers from ‘n’ to ‘1’ (in decreasing order) without using loops.
+
+```java
+public class Solution
+{
+    static void num(int[] li,int i,int x){
+         li[x-i]=i;
+        if(i==1){
+            return ;
+        }
+        num(li,i-1,x);
+    }
+    public static int[] printNos(int x) {
+        int[] li= new int[x];
+        num(li,x,x);
+        return li;
+    }
+}
+```
