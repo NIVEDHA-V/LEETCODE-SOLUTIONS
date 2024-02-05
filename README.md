@@ -140,3 +140,28 @@ public class Solution {
     }
 }
 ```
+
+### 6. Print 1 to N without loop
+
+You are given an integer ‘n’.
+Your task is to return an array containing integers from 1 to ‘n’ (in increasing order) without using loops.
+
+```java
+public class Solution {
+    static int c=1,i=0;
+    static void num(int arr[],int x){
+        if(c>x){
+            return ;
+        }
+        arr[i]=c;
+        c++;
+        i++;
+        num(arr,x);
+    }
+    public static int[] printNos(int x) {
+        int[] arr= new int[x];
+        num(arr,x);
+        return arr;
+    }
+}
+```
