@@ -280,3 +280,84 @@ public class Solution {
     }
 }
 ```
+
+### 12. Palindrome
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+```java
+import java.util.*;
+import java.io.*;
+class Solution {
+    
+    static boolean checkPalindrome(String s){
+        int i = 0;
+        int j = s.length() - 1;
+        s = s.toLowerCase();
+
+
+        while (i < j) {
+
+            if (!Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
+            }
+            else if (!Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+            } else {
+                if (s.charAt(i) != s.charAt(j)) {
+                    return false;
+                }
+                i++;
+                j--;
+            }
+        }
+
+        return true;
+    }
+    public boolean isPalindrome(String s) {
+        
+        return checkPalindrome(s);
+    }
+}
+```
+
+Another approach
+```java
+class Solution {
+    public boolean isPalindrome(String s) {
+        char[] charArray = s.toCharArray();
+        int ind = sanitize(charArray);
+        if (ind < 2) {
+            return true;
+        }
+        int i = 0;
+        int j = ind - 1;
+        while (i < j) {
+            if (charArray[i] != charArray[j]) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    private int sanitize(char[] charArray) {
+        int index = 0;
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] >= 48 && charArray[i] <= 57) {
+                charArray[index] = (char) charArray[i];
+                index++;
+            } else if (charArray[i] >= 65 && charArray[i] <= 90) {
+                charArray[index] = (char) (charArray[i] + 32);
+                index++;
+            } else if (charArray[i] >= 97 && charArray[i] <= 122) {
+                charArray[index] = (char) charArray[i];
+                index++;
+            }
+        }
+        return index;
+    }
+}
+```
