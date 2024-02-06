@@ -256,3 +256,27 @@ public class Solution {
     }
 }
 ```
+
+### 11. Reverse an array [inplace algo]
+
+Given an array 'arr' of size 'n'.
+Return an array with all the elements placed in reverse order.
+
+```java
+public class Solution {
+    static void rev(int i, int n,  int[] nums){
+        if(i>=n/2){
+            return ;
+        }
+        int t=nums[i];
+        nums[i]=nums[n-i-1];
+        nums[n-i-1]=t;
+        rev(i+1,n,nums);
+          
+    }
+    public static int[] reverseArray(int n, int []nums) {
+        rev(0,n,nums);
+        return nums;
+    }
+}
+```
