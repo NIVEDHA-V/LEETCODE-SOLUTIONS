@@ -225,3 +225,34 @@ public class Solution {
     }
 }
 ```
+
+### 10. Factorial Numbers Not Greater Than N
+
+You are given an integer ’n’.
+Your task is to return a sorted array (in increasing order) containing all the factorial numbers which are less than or equal to ‘n’.
+The factorial number is a factorial of a positive integer, like 24 is a factorial number, as it is a factorial of 4
+
+```java
+import java.util.*;;
+public class Solution {
+    static long fact (long n){
+        if(n==0||n==1){
+            return 1;
+        }
+        return n*fact(n-1);
+    }
+    public static List<Long> factorialNumbers(long n) {
+        List<Long> li = new ArrayList<>();
+        for(long i=1;i<=n;i++){
+            long x=(fact(i));
+            if(x<=n){
+                li.add(x);
+            }
+            else{
+                break;
+            }
+        }
+        return li;
+    }
+}
+```
