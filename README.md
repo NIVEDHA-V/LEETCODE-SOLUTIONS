@@ -377,3 +377,22 @@ class Solution {
     }
 }
 ```
+### 14. Count frequency in the range
+
+You are given an array 'arr' of length 'n' containing integers within the range '1' to 'x'.
+Your task is to count the frequency of all elements from 1 to n.
+
+```java
+public class Solution {
+    public static int[] countFrequency(int n, int x, int []nums){
+        // Write your code here.
+        int hash[] = new int[n];
+        for(int i=0;i<n;i++){
+            if(nums[i]<=n){
+                hash[nums[i]-1]+=1;
+            }
+        }
+        return hash;
+    }
+}
+```
