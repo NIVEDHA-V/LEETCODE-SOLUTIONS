@@ -396,3 +396,26 @@ public class Solution {
     }
 }
 ```
+### 15. Frequency of the most frequent element
+
+The frequency of an element is the number of times it occurs in an array.
+You are given an integer array nums and an integer k. In one operation, you can choose an index of nums and increment the element at that index by 1.
+Return the maximum possible frequency of an element after performing at most k operations.
+
+```java
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int r=1,st=0,end=0;
+        long s=0;
+        while(end<nums.length){
+            s+=nums[end++];
+            if((s+k)<((long)nums[end-1]*(end-st))){
+                s-=nums[st++];
+            }
+            r=Math.max(r,(end-st));
+        }
+        return r;
+    }
+}
+```
